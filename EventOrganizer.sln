@@ -1,0 +1,60 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.2.32616.157
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{21935568-F6C5-42EF-86DA-B5A8133C195E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{043F2939-FDD2-4D46-B934-ECF55256B351}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EventOrganizer.WebClient", "src\EventOrganizer.WebClient\EventOrganizer.WebClient.csproj", "{0C56E091-83FF-4A90-9DC8-5A79D4DA7313}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventOrganizer.Domain", "src\EventOrganizer.Domain\EventOrganizer.Domain.csproj", "{8BCF07D4-0A65-4666-B8C1-8511BED5D040}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventOrganizer.Core", "EventOrganizer.Core\EventOrganizer.Core.csproj", "{E14997FB-F007-4E07-AE28-37B293FFB6D2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventOrganizer.Tests", "test\EventOrganizer.Tests\EventOrganizer.Tests.csproj", "{2184DCA7-E0A2-4100-AE84-15EBAD031644}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventOrganizer.EF", "EventOrganizer.EF\EventOrganizer.EF.csproj", "{B907E733-E9F5-4A9D-9355-24FE04505931}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0C56E091-83FF-4A90-9DC8-5A79D4DA7313}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0C56E091-83FF-4A90-9DC8-5A79D4DA7313}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0C56E091-83FF-4A90-9DC8-5A79D4DA7313}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0C56E091-83FF-4A90-9DC8-5A79D4DA7313}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8BCF07D4-0A65-4666-B8C1-8511BED5D040}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8BCF07D4-0A65-4666-B8C1-8511BED5D040}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8BCF07D4-0A65-4666-B8C1-8511BED5D040}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8BCF07D4-0A65-4666-B8C1-8511BED5D040}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E14997FB-F007-4E07-AE28-37B293FFB6D2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E14997FB-F007-4E07-AE28-37B293FFB6D2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E14997FB-F007-4E07-AE28-37B293FFB6D2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E14997FB-F007-4E07-AE28-37B293FFB6D2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2184DCA7-E0A2-4100-AE84-15EBAD031644}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2184DCA7-E0A2-4100-AE84-15EBAD031644}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2184DCA7-E0A2-4100-AE84-15EBAD031644}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2184DCA7-E0A2-4100-AE84-15EBAD031644}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B907E733-E9F5-4A9D-9355-24FE04505931}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B907E733-E9F5-4A9D-9355-24FE04505931}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B907E733-E9F5-4A9D-9355-24FE04505931}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B907E733-E9F5-4A9D-9355-24FE04505931}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{0C56E091-83FF-4A90-9DC8-5A79D4DA7313} = {21935568-F6C5-42EF-86DA-B5A8133C195E}
+		{8BCF07D4-0A65-4666-B8C1-8511BED5D040} = {21935568-F6C5-42EF-86DA-B5A8133C195E}
+		{E14997FB-F007-4E07-AE28-37B293FFB6D2} = {21935568-F6C5-42EF-86DA-B5A8133C195E}
+		{2184DCA7-E0A2-4100-AE84-15EBAD031644} = {043F2939-FDD2-4D46-B934-ECF55256B351}
+		{B907E733-E9F5-4A9D-9355-24FE04505931} = {21935568-F6C5-42EF-86DA-B5A8133C195E}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A7BED18D-A972-485B-92B1-953A63DAA9CB}
+	EndGlobalSection
+EndGlobal
