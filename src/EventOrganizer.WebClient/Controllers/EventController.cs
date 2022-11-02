@@ -42,7 +42,7 @@ namespace EventOrganizer.WebClient.Controllers
         [HttpGet("{id}")]
         public ActionResult<EventViewModel> Get(int id)
         {
-            throw new NotImplementedException();
+            return Ok(new EventViewModel { Id = id });
         }
 
         // POST api/<EventController>
