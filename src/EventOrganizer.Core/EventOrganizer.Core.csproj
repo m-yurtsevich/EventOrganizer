@@ -5,7 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\src\EventOrganizer.Domain\EventOrganizer.Domain.csproj" />
+    <ProjectReference Include="..\EventOrganizer.Domain\EventOrganizer.Domain.csproj" />
   </ItemGroup>
 
   <ItemGroup>
