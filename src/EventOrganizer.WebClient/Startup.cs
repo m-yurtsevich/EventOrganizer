@@ -1,5 +1,6 @@
 ﻿using EventOrganizer.Core.Commands;
 using EventOrganizer.Core.Commands.EventCommands;
+using EventOrganizer.Core.DTO;
 using EventOrganizer.Core.Queries;
 using EventOrganizer.Core.Queries.EventQueries;
 using EventOrganizer.Core.Repositories;
@@ -7,6 +8,7 @@ using EventOrganizer.Domain.Models;
 using EventOrganizer.EF;
 using EventOrganizer.EF.Repositories;
 using Microsoft.EntityFrameworkCore;
+using System.Reflection;
 
 namespace EventOrganizer.WebClient
 {
@@ -27,10 +29,13 @@ namespace EventOrganizer.WebClient
             services.AddDbContext<EventOrganazerDbContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
-            services.AddTransient<IQuery<GetEventListQueryParamters, IList<EventModel>>, GetEventListQuery>();
-            services.AddTransient<ICommand<CreateEventCommandParameters, EventModel>, CreateEventCommand>();
+            services.AddTransient<IQuery<GetEventListQueryParameters, IList<EventDTO>>, GetEventListQuery>();
+            services.AddTransient<IQuery<GetEventByIdQueryParameters, EventDetailDTO>, GetEventByIdQuery>();
 
             services.AddTransient<IEventRepository, EventRepository>();
+
+            services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+
 
         }
 

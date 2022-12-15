@@ -1,14 +1,8 @@
-﻿using EventOrganizer.Core.Commands;
-using EventOrganizer.Core.Commands.EventCommands;
-using EventOrganizer.Core.Infrastructure;
+﻿using EventOrganizer.Core.DTO;
 using EventOrganizer.Core.Queries;
 using EventOrganizer.Core.Queries.EventQueries;
-using EventOrganizer.Domain.Models;
-using EventOrganizer.WebClient.ModelMappers;
 using EventOrganizer.WebClient.Views;
 using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
 
 namespace EventOrganizer.WebClient.Controllers
 {
@@ -16,50 +10,45 @@ namespace EventOrganizer.WebClient.Controllers
     [ApiController]
     public class EventController : ControllerBase
     {
-        private ICommand<CreateEventCommandParameters, EventModel> createEventCommand;
-        private IQuery<GetEventListQueryParamters, IList<EventModel>> getEventListQuery;
+        private readonly IQuery<GetEventListQueryParameters, IList<EventDTO>> getEventListQuery;
+        private readonly IQuery<GetEventByIdQueryParameters, EventDetailDTO> getEventByIdQuery;
 
-        public EventController(ICommand<CreateEventCommandParameters, EventModel> createEventCommand,
-            IQuery<GetEventListQueryParamters, IList<EventModel>> getEventListQuery)
+        public EventController(
+            IQuery<GetEventListQueryParameters, IList<EventDTO>> getEventListQuery,
+            IQuery<GetEventByIdQueryParameters, EventDetailDTO> getEventByIdQuery)
         {
-            this.createEventCommand = createEventCommand
-                ?? throw new ArgumentNullException(nameof(createEventCommand));
             this.getEventListQuery = getEventListQuery
-                    ?? throw new ArgumentNullException(nameof(getEventListQuery));
+                ?? throw new ArgumentNullException(nameof(getEventListQuery));
+            this.getEventByIdQuery = getEventByIdQuery
+                ?? throw new ArgumentNullException(nameof(getEventByIdQuery));
         }
+
         // GET: api/<EventController>
         [HttpGet]
-        public ActionResult<IList<EventPreviewModel>> Get(EventListSettings eventListSettings)
+        public ActionResult<IList<EventDTO>> Get(EventListSearchSettings searchSettings)
         {
-            var parametrs = new GetEventListQueryParamters {  EventListSettings = eventListSettings };
-            var result = getEventListQuery.Execute(parametrs);
-
-            var eventList = EventMapper.MapModelListToPreviewList(result);
-            return Ok(eventList);
+            throw new NotImplementedException();
         }
 
         // GET api/<EventController>/5
         [HttpGet("{id}")]
-        public ActionResult<EventViewModel> Get(int id)
+        public ActionResult<EventDetailDTO> Get(int id)
         {
-            return Ok(new EventViewModel { Id = id });
+            var result = getEventByIdQuery.Execute(new GetEventByIdQueryParameters { Id = id });
+
+            return result;
         }
 
         // POST api/<EventController>
         [HttpPost]
-        public ActionResult<EventViewModel> Post([FromBody] EventViewModel eventView)
+        public ActionResult<EventDetailDTO> Post([FromBody] EventDetailDTO eventView)
         {
-            var eventModel = EventMapper.MapViewToModel(eventView);
-            var parameters = new CreateEventCommandParameters { EventModel = eventModel };
-            var result = createEventCommand.Execute(parameters);
-
-            var createdEvent = EventMapper.MapModelToView(result);
-            return Ok(createdEvent);
+            throw new NotImplementedException();
         }
 
         // PUT api/<EventController>/5
         [HttpPut("{id}")]
-        public ActionResult<EventModel> Put(int id, [FromBody] string value)
+        public ActionResult<EventDetailDTO> Put(int id, [FromBody] string value)
         {
             throw new NotImplementedException();
         }

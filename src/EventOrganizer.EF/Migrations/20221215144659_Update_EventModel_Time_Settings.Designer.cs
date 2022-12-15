@@ -4,6 +4,7 @@ using EventOrganizer.EF;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace EventOrganizer.EF.Migrations
 {
     [DbContext(typeof(EventOrganazerDbContext))]
-    partial class EventOrganazerDbContextModelSnapshot : ModelSnapshot
+    [Migration("20221215144659_Update_EventModel_Time_Settings")]
+    partial class UpdateEventModelTimeSettings
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -216,6 +219,7 @@ namespace EventOrganizer.EF.Migrations
                     b.HasBaseType("EventOrganizer.Domain.Models.EventModel");
 
                     b.Property<string>("Location")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasDiscriminator().HasValue("OfflineEvent");
@@ -226,23 +230,10 @@ namespace EventOrganizer.EF.Migrations
                     b.HasBaseType("EventOrganizer.Domain.Models.EventModel");
 
                     b.Property<string>("MeetingLink")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasDiscriminator().HasValue("OnlineEvent");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            Description = "Mastery completion and presentation of the final product",
-                            EndDate = new DateTime(2023, 5, 28, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            EndTime = new TimeSpan(0, 19, 0, 0, 0),
-                            IsMessagingAllowed = false,
-                            RecurrenceType = 0,
-                            StartDate = new DateTime(2023, 5, 28, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            StartTime = new TimeSpan(0, 18, 0, 0, 0),
-                            Title = "Event organizer presentation"
-                        });
                 });
 
             modelBuilder.Entity("EventOrganizer.Domain.Models.DialogueMessage", b =>
